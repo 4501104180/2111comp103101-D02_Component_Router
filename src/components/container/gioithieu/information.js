@@ -41,7 +41,7 @@ export const Information = () => (
                 <Avatar
                     alt="Remy Sharp"
                     src="https://scontent.fsgn5-5.fna.fbcdn.net/v/t1.6435-9/137381468_1078505349330475_7599036906699935928_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=vyfmTj5VmvoAX8uf27U&_nc_ht=scontent.fsgn5-5.fna&oh=d3ffd3f6817a40c019a9398821bd20d6&oe=619273C4"
-                    sx={{ width: '140px', height: '140px' }}
+                    sx={{ width: '100px', height: '100px' }}
                 />
             </StyledBadge>
             <Typography variant='subtitle1'>
@@ -66,7 +66,7 @@ export const Information = () => (
             </Divider>
             {INFORMATIONS.map(infor => (
                 <Stack direction='row' spacing={1} key={infor.title}>
-                    <Typography variant='title' sx={{ color: '#000000' }}>
+                    <Typography variant='title' sx={{ color: '#000000'}}>
                         {infor.title}:
                     </Typography>
                     <Typography >

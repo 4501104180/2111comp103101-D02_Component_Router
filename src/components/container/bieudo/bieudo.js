@@ -4,7 +4,7 @@ export const BieuDo = () => {
 
     return (
         <div>
-            <h2>Bieu Do</h2>
+            <h2>Biểu đồ</h2>
             <Timeline />
         </div>
     )

@@ -16,6 +16,7 @@
     background: #f7f1f1;
     padding: 0 1.5em;
     font-size: initial;
+    
   }
   
   .NewTodoForm button {
@@ -29,6 +30,7 @@
     margin-left: 5px;
     cursor: pointer;
     transform: background 0.2s ease-out;
+    border-radius: 10%;
   }
   
   .NewTodoForm button:hover {

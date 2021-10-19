@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
 import "./Todo.css";
 
 function Todo({ todo, remove, update, toggleComplete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [task, setTask] = useState(todo.task);
 
-  const handleClick = evt => {
-    remove(evt.target.id);
+  const handleClick = id => {
+    remove(id);
+    // lúc nãy nó lấy event, từ event trỏ target rồi value đồ tùm lum, truyền thẳng id cho lẹ :))
   };
   const toggleFrom = () => {
     setIsEditing(!isEditing);
@@ -25,7 +25,7 @@ function Todo({ todo, remove, update, toggleComplete }) {
   };
 
   let result;
-  if (isEditing) {
+  if (isEditing) { 
     result = (
       <div className="Todo">
         <form className="Todo-edit-form" onSubmit={handleUpdate}>
@@ -46,10 +46,12 @@ function Todo({ todo, remove, update, toggleComplete }) {
         </li>
         <div className="Todo-buttons">
           <button onClick={toggleFrom}>
-            <i className="fas fa-pen" />
+            {/* <i className="fas fa-pen" /> */}
+            Sửa
           </button>
-          <button onClick={handleClick}>
-            <i id={todo.id} className="fas fa-trash" />
+          <button onClick={()=>handleClick(todo.id)}>
+            {/* <i id={todo.id} className="fas fa-trash" /> */}
+            Xóa
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-
+import { v4 as uuidv4 } from 'uuid';
 import "./NewTodoForm.css";
 
 function NewTodoForm({ task, createTodo }) {
@@ -16,7 +16,7 @@ function NewTodoForm({ task, createTodo }) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const newTodo = { id: 1, task: userInput.task, completed: false };
+    const newTodo = { id: uuidv4(), task: userInput.task, completed: false };
     createTodo(newTodo);
     setUserInput({ task: "" });
   };
@@ -37,4 +37,4 @@ function NewTodoForm({ task, createTodo }) {
   );
 }
 
-export default NewTodoForm;
+export default NewTodoForm; 

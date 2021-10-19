@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
+// import uuid from "uuid";
 import Todo from "./todo";
 import NewTodoForm from "./newtodo";
 import "./TodoList.css";
 
 function TodoList() {
     const [todos, setTodos] = useState([
-        { id: 1, task: "task 1", completed: false },
-        { id: 2, task: "task 2", completed: true }
+        // { id: uuid(), task: "task 1", completed: false },
+        // { id: uuid(), task: "task 2", completed: true }
     ]);
     
     const create = newTodo => {
@@ -24,7 +24,7 @@ function TodoList() {
         if (todo.id === id) {
             return { ...todo, task: updtedTask };
         }
-        return todo;
+        return todo; 
         });
         setTodos(updatedTodos);
     };
@@ -54,8 +54,8 @@ function TodoList() {
         <h1>
             Todo List <span>A simple React Todo List App</span>
         </h1>
-        <ul>{todosList}</ul>
         <NewTodoForm createTodo={create} />
+        <ul>{todosList}</ul>
         </div>
     );
 }
