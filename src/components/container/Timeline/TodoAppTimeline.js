@@ -1,25 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { TodoContext } from '../../../context/TodoContext';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { ReactComponent as WorkIcon } from "./work.svg";
 import { ReactComponent as SchoolIcon } from "./school.svg";
-import { red } from '@mui/material/colors';
 
 export function TodoAppTimeline(update) {
     const { todos } = useContext(TodoContext);
-    const { startLoading, changeCompleted } = useState('');
-    const handleChangeCompleted = evt => {
-        try {
-            // startLoading();
-            // changeCompleted(todos.id = true);
-            changeCompleted(true);
-            console.log(todos);
-            
-        } catch (error) {
-            console.log(error);
-        }
-    };
     return (
         <div>
             <VerticalTimeline>
@@ -41,17 +28,28 @@ export function TodoAppTimeline(update) {
                                 {item.deadline}
                             </h5>
                             {!item.completed && (
-                                <button 
+                                <p 
                                     style={{ 
                                         padding: 9, 
                                         margin: 3, 
                                         backgroundColor: '#DC143C', 
                                         color: 'white' 
                                         }}
-                                    onClick={handleChangeCompleted}
                                     >
-                                    Complete
-                                </button>
+                                    Đang hoạt động
+                                </p>
+                            )}
+                            {item.completed && (
+                                <p 
+                                style={{ 
+                                    padding: 9, 
+                                    margin: 3, 
+                                    backgroundColor: '#9ACD32', 
+                                    color: 'white' 
+                                    }}
+                                >
+                                Đã hoàn thành
+                            </p>
                             )}
                         </VerticalTimelineElement>
                     )

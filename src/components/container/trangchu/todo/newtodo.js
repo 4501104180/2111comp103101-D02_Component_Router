@@ -33,6 +33,7 @@ function NewTodoForm() {
         type="text"
         name="task"
         placeholder="New Todo"
+        required
       />
       <input
         value={DLInput}
@@ -41,6 +42,7 @@ function NewTodoForm() {
         type="date"
         name="task"
         placeholder="Deadline"
+        required
       />
       <button>Add Todo</button>
     </form>
