@@ -2,7 +2,7 @@
 
 import {TrangChu} from '../components/container/trangchu/trangchu';
 import {LichSu} from '../components/container/lichsu/lichsu';
-import {BieuDo} from '../components/container/bieudo/bieudo';
+// import {BieuDo} from '../components/container/bieudo/bieudo';
 import {GioiThieu} from '../components/container/gioithieu/gioithieu';
 import { TodoAppTimeline } from '../components/container/Timeline/TodoAppTimeline';
 

@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Todo.css";
+import { TodoContext } from '../../../../context/TodoContext'
 
 function Todo({ todo, remove, update, toggleComplete }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [task, setTask] = useState(todo.task);
+  const [task, setTask] = useState(todo.title);
+
+  const {todos } = useContext(TodoContext);
+  const [userInput, setUserInput] = useState('');
+  const [DLInput, setDLInput] = useState('');
+
+  // const handleChange = evt => {
+  //   setUserInput(evt.target.value);
+  // };
+  // const DLhandleChange = evt => {
+  //   setDLInput(evt.target.value);
+  // };
 
   const handleClick = id => {
     remove(id);
-    // lúc nãy nó lấy event, từ event trỏ target rồi value đồ tùm lum, truyền thẳng id cho lẹ :))
   };
   const toggleFrom = () => {
     setIsEditing(!isEditing);
@@ -23,11 +34,14 @@ function Todo({ todo, remove, update, toggleComplete }) {
   const toggleCompleted = evt => {
     toggleComplete(evt.target.id);
   };
-
+  const kiemtra = () =>{
+    console.log()
+  };
   let result;
   if (isEditing) { 
     result = (
       <div className="Todo">
+        {/* Form chinh sua */}
         <form className="Todo-edit-form" onSubmit={handleUpdate}>
           <input onChange={handleChange} value={task} type="text" />
           <button>Save</button>
@@ -42,17 +56,20 @@ function Todo({ todo, remove, update, toggleComplete }) {
           onClick={toggleCompleted}
           className={todo.completed ? "Todo-task completed" : "Todo-task"}
         >
-          {todo.task}
+          {todo.title}
+          {todo.dealine}
         </li>
         <div className="Todo-buttons">
           <button onClick={toggleFrom}>
             {/* <i className="fas fa-pen" /> */}
             Sửa
           </button>
+          
           <button onClick={()=>handleClick(todo.id)}>
             {/* <i id={todo.id} className="fas fa-trash" /> */}
             Xóa
           </button>
+
         </div>
       </div>
     );
