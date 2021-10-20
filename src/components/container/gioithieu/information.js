@@ -61,7 +61,7 @@ export const Information = () => (
         >
             <Divider>
                 <Typography variant='title'>
-                    <h3>Giới thiệu thông tin cá nhân</h3>
+                    <h3>Giới thiệu</h3>
                 </Typography>
             </Divider>
             {INFORMATIONS.map(infor => (

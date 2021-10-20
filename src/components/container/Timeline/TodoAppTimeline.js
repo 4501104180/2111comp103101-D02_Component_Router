@@ -14,7 +14,7 @@ export function TodoAppTimeline(update) {
                     return (
                         <VerticalTimelineElement
                             key={item.id}
-                            date={item.deadline}
+                            // date={item.deadline}
                             className="vertical-timeline-element--work"
                             iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
                             contentStyle={{ color: "rgb(33, 150, 243)", background: "#fff" }}

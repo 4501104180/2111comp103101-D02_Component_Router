@@ -6,16 +6,7 @@ function Todo({ todo, remove, update, toggleComplete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [task, setTask] = useState(todo.title);
 
-  const {todos } = useContext(TodoContext);
-  const [userInput, setUserInput] = useState('');
-  const [DLInput, setDLInput] = useState('');
-
-  // const handleChange = evt => {
-  //   setUserInput(evt.target.value);
-  // };
-  // const DLhandleChange = evt => {
-  //   setDLInput(evt.target.value);
-  // };
+  const { todos } = useContext(TodoContext);
 
   const handleClick = id => {
     remove(id);
@@ -33,9 +24,6 @@ function Todo({ todo, remove, update, toggleComplete }) {
   };
   const toggleCompleted = evt => {
     toggleComplete(evt.target.id);
-  };
-  const kiemtra = () =>{
-    console.log()
   };
   let result;
   if (isEditing) { 
@@ -61,12 +49,9 @@ function Todo({ todo, remove, update, toggleComplete }) {
         </li>
         <div className="Todo-buttons">
           <button onClick={toggleFrom}>
-            {/* <i className="fas fa-pen" /> */}
             Sửa
           </button>
-          
           <button onClick={()=>handleClick(todo.id)}>
-            {/* <i id={todo.id} className="fas fa-trash" /> */}
             Xóa
           </button>
 
