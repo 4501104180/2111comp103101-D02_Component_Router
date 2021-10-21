@@ -8,7 +8,6 @@ import { TodoProvider } from './context/TodoContext';
 
 function App() {
   return (
-    // Provider thường ko đặt ở App đâu, đặt ở index.js luôn ấy. Là cái gốc của toàn bộ app. Đặt ở app lỡ sau xử lí gì ở app thì vướng provider đó
     <div className="App">
       <MyContextProvider>
         <h1>TO DO LIST</h1>
