@@ -3,6 +3,7 @@ import Todo from "./todo";
 import NewTodoForm from "./newtodo";
 import "./TodoList.css";
 import { TodoContext } from '../../../../context/TodoContext';
+import ReactLoading from 'react-loading';
 
 function TodoList() {
     const { todos } = useContext(TodoContext);
@@ -17,9 +18,21 @@ function TodoList() {
     //Xóa id
     const remove = id => {
         // setUserInput(todos.filter(todo => todo.id !== id));
-        delete({id});
         console.log(id);
-        
+        const updatedTodos = todos.map(todo => {
+            if (todo.id === id) {
+                console.log(todo);
+                return { ...todo, id: !(
+                    delete(todo.id),
+                    delete(todo.title),
+                    delete(todo.deadline),
+                    delete(todo.completed)
+                )};
+            }
+            return todo;
+            });
+            setUserInput(updatedTodos);
+            
     };
 
     //Edit id
@@ -32,11 +45,14 @@ function TodoList() {
         });
         setUserInput(updatedTodos);
     };
-
+    
+    //Thay đổi trạng thái ("Hoạt động" - "Xong")
     const toggleComplete = id => {
+        console.log(id);
         const updatedTodos = todos.map(todo => {
         if (todo.id === id) {
-            return { ...todo, completed: !todo.completed };
+            console.log(todo.completed);
+            return { ...todo, completed: !(todo.completed=true) };
         }
         return todo;
         });
