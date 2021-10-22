@@ -3,22 +3,19 @@ import Todo from "./todo";
 import NewTodoForm from "./newtodo";
 import "./TodoList.css";
 import { TodoContext } from '../../../../context/TodoContext';
-import ReactLoading from 'react-loading';
 
 function TodoList() {
     const { todos } = useContext(TodoContext);
 
     const [userInput, setUserInput] = useState('');
-
-    const create = newTodo => {
-        console.log(newTodo);
-        setUserInput([...todos, newTodo]);
-    };
+   console.log(userInput);
+    // const create = newTodo => {
+    //     console.log(newTodo);
+    //     setUserInput([...todos, newTodo]);
+    // };
 
     //Xóa id
     const remove = id => {
-        // setUserInput(todos.filter(todo => todo.id !== id));
-        console.log(id);
         const updatedTodos = todos.map(todo => {
             if (todo.id === id) {
                 console.log(todo);
@@ -32,16 +29,15 @@ function TodoList() {
             return todo;
             });
             setUserInput(updatedTodos);
-            
     };
 
     //Edit id
     const update = (id, updtedTask) => {
         const updatedTodos = todos.map(todo => {
-        if (todo.id === id) {
-            return { ...todo, task: updtedTask };
-        }
-        return todo; 
+            if (todo.id === id) {
+                return { ...todo, id: !(todo.title = updtedTask) };
+            }
+            return todo; 
         });
         setUserInput(updatedTodos);
     };
@@ -61,6 +57,7 @@ function TodoList() {
     //---------------------------------------------------------------------
     
     const todosList = todos.map(todo => (
+        
         <Todo
         toggleComplete={toggleComplete}
         update={update}
